@@ -113,13 +113,13 @@ module.exports = function(router){
             await upload(req, res, async function(err) {
                 const file = req.file;
                 const buffer = file.buffer
-                const url = process.env.FPT_API_URL || '';
+                const url = 'https://api.fpt.ai/vision/idr/vnm' || '';
                 const formData = new FormData();
                 formData.append('image',buffer, 'image');
                 const config = {
                     headers: {
                         'content-type': 'multipart/form-data',
-                        'api-key': process.env.FPT_AI_KEY || '',
+                        'api-key': 'tJkcuq0NN69U9Wc9BrYjoC2u08fsJpPa' || '',
                         ...formData.getHeaders()
                     }
                 }
