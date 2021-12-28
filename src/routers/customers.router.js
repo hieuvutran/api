@@ -28,7 +28,7 @@ module.exports = function(router){
                     path: 'order'
                 }]
             }).lean();
-            list = list.filter(item => item.roomId.hotelId == req.headers.hotelid &&  item.booking.startDate <= new Date() <=item.booking.endDate)
+            list = list.filter(item => item.roomId.hotelId == req.headers.hotelid && item.booking && item.booking.startDate <= new Date() <=item.booking.endDate)
             await mongo.close();
             return res.json({code: 200, data: list})
         }, next);
